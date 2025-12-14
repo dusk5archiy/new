@@ -1,0 +1,106 @@
+@echo off
+
+REM Set up variables
+
+set CWD=%~dp0
+set CWD=%CWD:~0,-1%
+set W_HOME_DRIVE_LETTER=%~d0
+set W_HOME_DRIVE_LETTER=%W_HOME_DRIVE_LETTER::=%
+set HOME_DRIVE_LETTER=%W_HOME_DRIVE_LETTER%
+
+for %%L in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
+    call set "HOME_DRIVE_LETTER=%%HOME_DRIVE_LETTER:%%L=%%L%%"
+)
+
+:prompt
+
+echo.
+echo ============================
+echo.
+echo SET UP NEW MSYS2 ENVIRONMENT
+echo.
+echo 1. Show available variables
+echo 2. Enter installation folder
+echo 3. Install MSYS2
+echo 4. Install Customizations
+echo q. Exit
+echo.
+echo ============================
+
+set /p "response=Choose: "
+
+if "%response%"=="1" (
+  goto :showAvailableVariables
+) else if "%response%"=="2" (
+  goto :enterFolder
+) else if "%response%"=="3" (
+  goto :installMsys2
+) else if "%response%"=="4" (
+  goto :installCustomizations
+) else if "%response%"=="q" (
+  goto :eof
+) else (
+  echo "[-- ERROR --] Invalid option."
+  pause
+  goto :prompt
+)
+
+
+:showAvailableVariables
+echo --------------------------------------------------------------------------
+echo.
+echo Available variables:
+echo.
+echo %%CWD%%
+echo The current directory
+echo This variable is set to: %CWD%
+echo.
+echo %%W_HOME_DRIVE_LETTER%%
+echo Uppercase label of the drive containing the current directory
+echo This variable is set to: %W_HOME_DRIVE_LETTER%
+echo.
+echo %%HOME_DRIVE_LETTER%% %HOME_DRIVE_LETTER%
+echo Lowercase label of the drive containing the current directory
+echo This variable is set to: %HOME_DRIVE_LETTER%
+echo.
+echo --------------------------------------------------------------------------
+pause
+goto :prompt
+
+:enterFolder
+echo.
+echo Enter the folder path to install:
+set /p "install_dir=Path: "
+
+call set "install_dir=%install_dir%"
+if not exist "%install_dir%\" (
+  echo.
+  echo The folder does not exist. Please provide an existing one.
+  pause
+  goto :enterFolder
+)
+goto :prompt
+
+
+:installMsys2
+echo.
+echo [-- START --] Start installing MSYS2 at "%install_dir%".
+rmdir /s /q "%install_dir%\msys64" 2>nul
+%CWD%\assets\msys2-x86_64-latest.sfx.exe -o"%install_dir%"
+
+rmdir /s /q "%install_dir%\custom_assets" 2>nul
+mkdir "%install_dir%\custom_assets" 2>nul
+robocopy "%install_dir%\msys64\etc" "%install_dir%\custom_assets" "profile"
+echo [-- SUCCESS --] Msys2 Installed Successfully.
+pause
+goto :prompt
+
+:installCustomizations
+echo.
+echo [-- START --] Start installing Customizations at "%install_dir%".
+rmdir /s /q "%install_dir%\custom_system" 2>nul
+mkdir "%install_dir%\custom_system" 2>nul
+robocopy "%cwd%\msys2" "%install_dir%" /E
+echo [-- SUCCESS --] Customizations Installed Successfully.
+echo.
+goto :prompt
