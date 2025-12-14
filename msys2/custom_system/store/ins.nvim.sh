@@ -1,5 +1,3 @@
-pre.nvim.sh
-
 pacman -S --needed --noconfirm - <"$STORE_DIR/assets/ins.nvim.txt"
 
 rm -rf $NVIM_CONFIG_DIR
