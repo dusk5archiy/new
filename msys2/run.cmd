@@ -9,11 +9,8 @@ for %%L in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
     call set "HOME_DRIVE_LETTER=%%HOME_DRIVE_LETTER:%%L=%%L%%"
 )
 
-set /p MSYS2_DIR=<%CWD%\var\env\MSYS2_DIR
-call set MSYS2_DIR=%MSYS2_DIR%
-
-set "MSYS2_DIR=%CWD%\msyss64"
-set "CUSTOM_SETTINGS_DIR=%CWD%\msys64"
+set "MSYS2_DIR=%CWD%\msys64"
+set "CUSTOM_SETTINGS_DIR=%CWD%\custom_settings"
 set "SYSTEM_DIR=%CWD%\custom_system\system"
 set "STORE_DIR=%CWD%\custom_system\store"
 set "APPS_DIR=%CWD%\apps"
@@ -25,8 +22,9 @@ echo export SYSTEM_DIR=$(/usr/bin/cygpath "%SYSTEM_DIR%") > %PROFILE_FILE%
 echo export STORE_DIR=$(/usr/bin/cygpath "%STORE_DIR%") >>%PROFILE_FILE%
 echo export CUSTOM_SETTINGS_DIR=$(/usr/bin/cygpath "%CUSTOM_SETTINGS_DIR%") >>%PROFILE_FILE%
 echo export APPS_DIR=$(/usr/bin/cygpath "%APPS_DIR%") >>%PROFILE_FILE%
-echo export HOME=%HOME% >>%PROFILE_FILE%
+echo export HOME=$(/usr/bin/cygpath "%HOME%") >>%PROFILE_FILE%
 echo source $SYSTEM_DIR/main.sh >>%PROFILE_FILE%
 
 
 %MSYS2_DIR%\usr\bin\bash -l
+pause

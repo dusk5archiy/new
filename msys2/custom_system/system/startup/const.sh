@@ -25,3 +25,6 @@ export DESKTOP="$USERPROFILE/Desktop"
 mkdir -p $DESKTOP
 
 export HOMEPATH=\\home
+
+mkdir -p "/home/$(whoami)/.ssh"
+touch "/home/$(whoami)/.ssh/authorized_keys"
