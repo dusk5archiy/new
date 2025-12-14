@@ -29,4 +29,5 @@ export HOMEPATH=\\home
 export ORIGINAL_HOME="/home/$(whoami)"
 mkdir -p "$ORIGINAL_HOME"
 mkdir -p "$ORIGINAL_HOME/.ssh"
+
 touch "$ORIGINAL_HOME/.ssh/authorized_keys"
