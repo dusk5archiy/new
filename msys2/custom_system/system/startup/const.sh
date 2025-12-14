@@ -26,5 +26,7 @@ mkdir -p $DESKTOP
 
 export HOMEPATH=\\home
 
-mkdir -p "/home/$(whoami)/.ssh"
-touch "/home/$(whoami)/.ssh/authorized_keys"
+export ORIGINAL_HOME="/home/$(whoami)"
+mkdir -p "$ORIGINAL_HOME"
+mkdir -p "$ORIGINAL_HOME/.ssh"
+touch "$ORIGINAL_HOME/.ssh/authorized_keys"

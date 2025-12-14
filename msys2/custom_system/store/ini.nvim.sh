@@ -1,3 +1,3 @@
 rm -rf "$CUSTOM_NVIM_CONFIG_DIR"
 mkdir -p "$CUSTOM_NVIM_CONFIG_DIR"
-cp -r "$STORE_DIR/config/nvim"/* "$CUSTOM_NVIM_CONFIG_DIR"/
+cp -r "$STORE_DIR/config/nvim"/* "$CUSTOM_NVIM_CONFIG_DIR/"

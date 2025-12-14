@@ -1,0 +1,6 @@
+cp "$HOME/.ssh/id_ed25519" "$ORIGINAL_HOME/.ssh/id_ed25519"
+cp "$HOME/.ssh/id_ed25519.pub" "$ORIGINAL_HOME/.ssh/id_ed25519.pub"
+chmod 700 "$ORIGINAL_HOME/.ssh/id_ed25519"
+eval "$(ssh-agent -s)"
+ssh-add "$ORIGINAL_HOME/.ssh/id_ed25519"
+cat "$ORIGINAL_HOME/.ssh/id_ed25519.pub"
