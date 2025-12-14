@@ -85,6 +85,20 @@ goto :prompt
 :installMsys2
 echo.
 echo [-- START --] Start installing MSYS2 at "%install_dir%".
+
+if not exists "%CWD%\assets\msys2-x86_64-latest.sfx.exe" (
+  echo [-- CURRENT --] Downloading MSYS2...
+  curl -o "%CWD%\assets\msys2-x86_64-latest.sfx.exe" "https://repo.msys2.org/distrib/msys2-x86_64-latest.sfx.exe"
+  if errorlevel 1 (
+    echo [-- FAILED --] Failed to download MSYS2.
+    echo.
+    pause
+    goto :prompt
+  ) else (
+    echo [-- CURRENT --] Downloaded MSYS2 successfully.
+  )
+)
+
 rmdir /s /q "%install_dir%\msys64" 2>nul
 %CWD%\assets\msys2-x86_64-latest.sfx.exe -o"%install_dir%"
 
