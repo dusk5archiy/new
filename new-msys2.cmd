@@ -21,30 +21,44 @@ echo SET UP NEW MSYS2 ENVIRONMENT
 echo.
 echo 1. Show available variables
 echo 2. Enter installation folder
-echo 3. Install MSYS2
-echo 4. Install Customizations
+if not "%install_dir%"=="" (
+  echo 3. Install MSYS2
+  echo 4. Install Customizations
+)
 echo q. Exit
 echo.
 echo ============================
 
 set /p "response=Choose: "
 
-if "%response%"=="1" (
-  goto :showAvailableVariables
-) else if "%response%"=="2" (
-  goto :enterFolder
-) else if "%response%"=="3" (
-  goto :installMsys2
-) else if "%response%"=="4" (
-  goto :installCustomizations
-) else if "%response%"=="q" (
-  goto :eof
+if "%install_dir%"=="" (
+  if "%response%"=="1" (
+    goto :showAvailableVariables
+  ) else if "%response%"=="2" (
+    goto :enterFolder
+  ) else (
+    goto :invalidOption
+  )
 ) else (
-  echo "[-- ERROR --] Invalid option."
-  pause
-  goto :prompt
+  if "%response%"=="1" (
+    goto :showAvailableVariables
+  ) else if "%response%"=="2" (
+    goto :enterFolder
+  ) else if "%response%"=="3" (
+    goto :installMsys2
+  ) else if "%response%"=="4" (
+    goto :installCustomizations
+  ) else if "%response%"=="q" (
+    goto :eof
+  ) else (
+    goto :invalidOption
+  )
 )
 
+:invalidOption
+echo "[-- ERROR --] Invalid option."
+pause
+goto :prompt
 
 :showAvailableVariables
 echo --------------------------------------------------------------------------
@@ -86,7 +100,7 @@ goto :prompt
 echo.
 echo [-- START --] Start installing MSYS2 at "%install_dir%".
 
-if not exists "%CWD%\assets\msys2-x86_64-latest.sfx.exe" (
+if not exist "%CWD%\assets\msys2-x86_64-latest.sfx.exe" (
   echo [-- CURRENT --] Downloading MSYS2...
   curl -o "%CWD%\assets\msys2-x86_64-latest.sfx.exe" "https://repo.msys2.org/distrib/msys2-x86_64-latest.sfx.exe"
   if errorlevel 1 (
@@ -117,4 +131,5 @@ mkdir "%install_dir%\custom_system" 2>nul
 robocopy "%cwd%\msys2" "%install_dir%" /E
 echo [-- SUCCESS --] Customizations Installed Successfully.
 echo.
+pause
 goto :prompt
