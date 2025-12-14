@@ -1,4 +1,5 @@
 mkdir -p $APPS_DIR
+mkdir -p $CUSTOM_SETTINGS_DIR/config
 mkdir -p $CUSTOM_SETTINGS_DIR/env
 mkdir -p $CUSTOM_SETTINGS_DIR/init
 mkdir -p $CUSTOM_SETTINGS_DIR/path
@@ -20,7 +21,7 @@ for file in "$CUSTOM_SETTINGS_DIR/init"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
-CUSTOM_PATH="$CUSTOM_SETTINGS_DIR/scripts:$SYSTEM_DIR/scripts"
+CUSTOM_PATH="$CUSTOM_SETTINGS_DIR/scripts:$SYSTEM_DIR/scripts:$STORE_DIR"
 
 addpath() {
   local dir="$1"

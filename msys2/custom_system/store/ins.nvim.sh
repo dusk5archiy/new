@@ -1,0 +1,12 @@
+pre.nvim.sh
+
+pacman -S --needed --noconfirm - <"$STORE_DIR/assets/ins.nvim.txt"
+
+rm -rf $NVIM_CONFIG_DIR
+git clone https://github.com/LazyVim/starter $NVIM_CONFIG_DIR
+rm -rf $NVIM_CONFIG_DIR/.git
+
+echo 'dofile(string.format("%s\\init.lua", os.getenv("W_CUSTOM_NVIM_CONFIG_DIR")))' >$LOCALAPPDATA/nvim/init.lua
+echo 'return dofile(string.format("%s\\lua\\config\\keymaps.lua", os.getenv("W_CUSTOM_NVIM_CONFIG_DIR")))' >$NVIM_CONFIG_DIR/lua/config/keymaps.lua
+echo 'return dofile(string.format("%s\\lua\\config\\options.lua", os.getenv("W_CUSTOM_NVIM_CONFIG_DIR")))' >$NVIM_CONFIG_DIR/lua/config/options.lua
+echo 'return dofile(string.format("%s\\lua\\plugins\\plugins.lua", os.getenv("W_CUSTOM_NVIM_CONFIG_DIR")))' >$NVIM_CONFIG_DIR/lua/plugins/plugins.lua
