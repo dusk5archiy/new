@@ -13,7 +13,7 @@ set "MSYS2_DIR=%CWD%\msys64"
 set "CUSTOM_SETTINGS_DIR=%CWD%\custom_settings"
 set "SYSTEM_DIR=%CWD%\custom_system\system"
 set "STORE_DIR=%CWD%\custom_system\store"
-set "APPS_DIR=%CWD%\apps"
+set "APPS_DIR=%CWD%\custom_apps"
 set "HOME=%CWD%\home"
 
 set "PROFILE_FILE=%MSYS2_DIR%\etc\profile"
