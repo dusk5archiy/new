@@ -84,15 +84,15 @@ function M.getConfigs(other_configs)
 		colors = {
 			-- foreground = "silver",
 			-- background = "black",
-			cursor_fg = "red",
-			cursor_bg = "red",
-			cursor_border = "red",
+			-- cursor_fg = "red",
+			-- cursor_bg = "red",
+			cursor_border = "#777",
 
 			-- selection_fg = "silver",
 			-- selection_bg = "gray",
 
-			scrollbar_thumb = "red",
-			split = "white",
+			-- scrollbar_thumb = "red",
+			split = "#555",
 
 			tab_bar = {
 				background = "none",
