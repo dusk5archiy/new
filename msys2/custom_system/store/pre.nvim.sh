@@ -1,1 +1,1 @@
-cp "$STORE_DIR/env/nvim.sh" $CUSTOM_SETTINGS_DIR/env/
+cp "$STORE_DIR/env/nvim.sh" $VAR_SETTINGS_DIR/env/

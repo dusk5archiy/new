@@ -1,7 +1,7 @@
 export NVIM_CONFIG_DIR="$LOCALAPPDATA/nvim"
 mkdir -p "$NVIM_CONFIG_DIR"
 
-export CUSTOM_NVIM_CONFIG_DIR="$CUSTOM_SETTINGS_DIR/config/nvim"
+export CUSTOM_NVIM_CONFIG_DIR="$VAR_SETTINGS_DIR/config/nvim"
 mkdir -p "$CUSTOM_NVIM_CONFIG_DIR"
 
 export W_CUSTOM_NVIM_CONFIG_DIR="$(/usr/bin/cygpath -w "$CUSTOM_NVIM_CONFIG_DIR")"

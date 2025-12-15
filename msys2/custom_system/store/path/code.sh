@@ -1,1 +1,1 @@
-addpath "$APPS_DIR/code/bin"
+addpath "$VAR_APPS_DIR/code/bin"

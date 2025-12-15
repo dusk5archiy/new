@@ -1,15 +1,23 @@
 # -----------------------------------------------------------------------------
 
-/usr/bin/mkdir -p $APPS_DIR
-/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/config
-/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/env
-/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/init
-/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/path
-/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/scripts
+/usr/bin/mkdir -p "$VAR_APPS_DIR"
+/usr/bin/mkdir -p "$VAR_SETTINGS_DIR/config"
+/usr/bin/mkdir -p "$VAR_SETTINGS_DIR/env"
+/usr/bin/mkdir -p "$VAR_SETTINGS_DIR/init"
+/usr/bin/mkdir -p "$VAR_SETTINGS_DIR/path"
+/usr/bin/mkdir -p "$VAR_SETTINGS_DIR/scripts"
+
+/usr/bin/mkdir -p "$ROOT_DIR/apps"
+
+/usr/bin/mkdir -p "$ROOT_DIR/settings"
+/usr/bin/mkdir -p "$ROOT_DIR/settings/env"
+/usr/bin/mkdir -p "$ROOT_DIR/settings/init"
+/usr/bin/mkdir -p "$ROOT_DIR/settings/path"
+/usr/bin/mkdir -p "$ROOT_DIR/settings/scripts"
 
 # -----------------------------------------------------------------------------
 
-export EXTERNAL_PROGRAMS_FILE="$CUSTOM_SETTINGS_DIR/EXTERNAL_PROGRAMS.txt"
+export EXTERNAL_PROGRAMS_FILE="$ROOT_DIR/settings/EXTERNAL_PROGRAMS.txt"
 /usr/bin/touch $EXTERNAL_PROGRAMS_FILE
 
 EXTERNAL_PATH=""
@@ -68,32 +76,46 @@ for file in "$SYSTEM_DIR/env"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
-for file in "$CUSTOM_SETTINGS_DIR/env"/*.sh; do
+for file in "$VAR_SETTINGS_DIR/env"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
-for file in "$SYSTEM_DIR/init"/*.sh; do
-  [[ -f "$file" ]] && source "$file"
-done
-
-for file in "$CUSTOM_SETTINGS_DIR/init"/*.sh; do
+for file in "$ROOT_DIR/settings/env"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
 # -----------------------------------------------------------------------------
 
-CUSTOM_PATH="$CUSTOM_SETTINGS_DIR/scripts:$SYSTEM_DIR/scripts:$STORE_DIR"
+for file in "$SYSTEM_DIR/init"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+for file in "$VAR_SETTINGS_DIR/init"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+for file in "$ROOT_DIR/settings/init"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+# -----------------------------------------------------------------------------
+
+CUSTOM_PATH="$ROOT_DIR/settings/scripts:$VAR_SETTINGS_DIR/scripts:$SYSTEM_DIR/scripts:$STORE_DIR"
 
 addpath() {
   local dir="$1"
   CUSTOM_PATH="$CUSTOM_PATH:$dir"
 }
 
-for file in "$SYSTEM_DIR/path"/*.sh; do
+for file in "$ROOT_DIR/settings/path"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
-for file in "$CUSTOM_SETTINGS_DIR/path"/*.sh; do
+for file in "$VAR_SETTINGS_DIR/path"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+for file in "$SYSTEM_DIR/path"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 

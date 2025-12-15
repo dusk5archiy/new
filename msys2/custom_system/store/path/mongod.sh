@@ -1,4 +1,4 @@
-for dir in $APPS_DIR/mongod/*/; do
+for dir in $VAR_APPS_DIR/mongod/*/; do
   dir=${dir%/}
   if [ -d "$dir" ]; then
     addpath "$dir/bin"
