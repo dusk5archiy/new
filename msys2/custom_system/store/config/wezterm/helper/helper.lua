@@ -23,7 +23,8 @@ function M.getConfigs(other_configs)
 		-- 	brightness = 0.02,
 		-- 	saturation = 0.5,
 		-- },
-		window_background_opacity = 0.9,
+
+		window_background_opacity = 1.0,
 		font_size = 9,
 		-- color_scheme = "Gruvbox dark, soft (base16)",
 		color_scheme = "Catppuccin Macchiato",
