@@ -1,10 +1,118 @@
+# -----------------------------------------------------------------------------
+
+mkdir -p $APPS_DIR
+mkdir -p $CUSTOM_SETTINGS_DIR/config
+mkdir -p $CUSTOM_SETTINGS_DIR/env
+mkdir -p $CUSTOM_SETTINGS_DIR/init
+mkdir -p $CUSTOM_SETTINGS_DIR/path
+mkdir -p $CUSTOM_SETTINGS_DIR/scripts
+
+# -----------------------------------------------------------------------------
+
+export EXTERNAL_PROGRAMS_FILE="$CUSTOM_SETTINGS_DIR/EXTERNAL_PROGRAMS.txt"
+touch $EXTERNAL_PROGRAMS_FILE
+
+export PATH="/usr/bin:$PATH"
+
+EXTERNAL_PATH=""
+while IFS= read -r line || [[ -n "$line" ]]; do
+  p=$(dirname "$(type -p $line)")
+  if [[ -z "$p" ]]; then
+    EXTERNAL_PATH="$EXTERNAL_PATH:$p"
+  fi
+done <"$EXTERNAL_PROGRAMS_FILE"
+EXTERNAL_PATH="$(EXTERNAL_PATH#:)"
+
+# -----------------------------------------------------------------------------
+
 source $SYSTEM_DIR/assets/etc/profile
 
-for file in "$SYSTEM_DIR/startup"/*.sh; do
+# -----------------------------------------------------------------------------
+
+mkdir -p "$HOME/AppData"
+
+export APPDATA="$HOME/AppData/Roaming"
+mkdir -p "$APPDATA"
+
+export LOCALAPPDATA="$HOME/AppData/Local"
+mkdir -p "$LOCALAPPDATA"
+export XDG_CONFIG_HOME=$LOCALAPPDATA
+export XDG_DATA_HOME=$LOCALAPPDATA
+
+export XDG_CACHE_HOME="$HOME/.cache"
+mkdir -p "$XDG_CACHE_HOME"
+
+export XDG_STATE_HOME=$HOME/.local/state
+mkdir -p "$XDG_STATE_HOME"
+
+export TMP="$HOME/tmp"
+export TEMP="$HOME/tmp"
+mkdir -p "$TMP"
+
+export USERPROFILE="$HOME/profile"
+mkdir -p "$USERPROFILE"
+
+export DESKTOP="$USERPROFILE/Desktop"
+mkdir -p $DESKTOP
+
+export HOMEPATH=\\home
+
+export ORIGINAL_HOME="/home/$(whoami)"
+mkdir -p "$ORIGINAL_HOME"
+mkdir -p "$ORIGINAL_HOME/.ssh"
+
+touch "$ORIGINAL_HOME/.ssh/authorized_keys"
+
+# -----------------------------------------------------------------------------
+
+for file in "$SYSTEM_DIR/env"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
+
+for file in "$CUSTOM_SETTINGS_DIR/env"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+for file in "$SYSTEM_DIR/init"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+for file in "$CUSTOM_SETTINGS_DIR/init"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+# -----------------------------------------------------------------------------
+
+CUSTOM_PATH="$CUSTOM_SETTINGS_DIR/scripts:$SYSTEM_DIR/scripts:$STORE_DIR"
+
+addpath() {
+  local dir="$1"
+  CUSTOM_PATH="$CUSTOM_PATH:$dir"
+}
+
+for file in "$SYSTEM_DIR/path"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+for file in "$CUSTOM_SETTINGS_DIR/path"/*.sh; do
+  [[ -f "$file" ]] && source "$file"
+done
+
+export PATH="$CUSTOM_PATH:$PATH"
+
+unset addpath
+unset CUSTOM_PATH
+
+# -----------------------------------------------------------------------------
+
+export PATH="$EXTERNAL_PATH:$PATH"
+unset EXTERNAL_PATH
+
+# -----------------------------------------------------------------------------
 
 current_dir="$(pwd)"
 if [[ $current_dir == "/$SYSTEM_DRIVE_LETTER/Users/$(/usr/bin/whoami)" ]]; then
   cd $DESKTOP
 fi
+
+# -----------------------------------------------------------------------------
