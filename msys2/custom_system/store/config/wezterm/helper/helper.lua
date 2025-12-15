@@ -18,12 +18,12 @@ function M.getConfigs(other_configs)
 
 		adjust_window_size_when_changing_font_size = false,
 
-		window_background_image = config_dir .. "\\..\\desktop-background\\desktop.jpg",
-		window_background_image_hsb = {
-			brightness = 0.02,
-			saturation = 0.5,
-		},
-		window_background_opacity = 0.7,
+		-- window_background_image = config_dir .. "\\..\\desktop-background\\desktop.jpg",
+		-- window_background_image_hsb = {
+		-- 	brightness = 0.02,
+		-- 	saturation = 0.5,
+		-- },
+		window_background_opacity = 0.9,
 		font_size = 9,
 		-- color_scheme = "Gruvbox dark, soft (base16)",
 		color_scheme = "Catppuccin Macchiato",
@@ -66,9 +66,9 @@ function M.getConfigs(other_configs)
 
 		-- padding
 		window_padding = {
-			left = 10,
-			right = 10,
-			top = 10,
+			left = 20,
+			right = 20,
+			top = 30,
 			bottom = 10,
 		},
 

@@ -30,4 +30,3 @@ echo source $SYSTEM_DIR/main.sh >>%PROFILE_FILE%
 
 
 %MSYS2_DIR%\usr\bin\bash -l
-pause
