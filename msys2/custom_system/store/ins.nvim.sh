@@ -1,5 +1,3 @@
-pacman -S --needed --noconfirm - <"$STORE_DIR/assets/ins.nvim.txt"
-
 rm -rf $NVIM_CONFIG_DIR
 git clone https://github.com/LazyVim/starter $NVIM_CONFIG_DIR
 rm -rf $NVIM_CONFIG_DIR/.git

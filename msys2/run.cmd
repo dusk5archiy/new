@@ -9,8 +9,10 @@ for %%L in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
     call set "HOME_DRIVE_LETTER=%%HOME_DRIVE_LETTER:%%L=%%L%%"
 )
 
+set "APPS_DIR=%CWD%\apps"
 set "HOME=%CWD%\home"
 set "MSYS2_DIR=%CWD%\msys64"
+set "SETTINGS_DIR=%CWD%\settings"
 set "STORE_DIR=%CWD%\custom_system\store"
 set "SYSTEM_DIR=%CWD%\custom_system\system"
 set "VAR_APPS_DIR=%CWD%\var_apps"
