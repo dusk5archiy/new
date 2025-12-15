@@ -1,6 +1,11 @@
 #!/bin/bash
 
 read -p "Enter app name: " app_name
+if [ -f "$STORE_DIR/assets/url.$app_name.zip.txt" ]; then
+  echo $app_name does not exist.
+  exit 1
+fi
+
 ARCHIVE_URL=$(<"$STORE_DIR/assets/url.$app_name.zip.txt")
 
 INSTALL_DIR="$APPS_DIR/$app_name"

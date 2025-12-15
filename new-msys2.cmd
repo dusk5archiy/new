@@ -22,8 +22,8 @@ echo.
 echo 1. Show available variables
 echo 2. Enter installation folder
 if not "%install_dir%"=="" (
-  echo 3. Install MSYS2
-  echo 4. Install Customizations
+  echo msys2. Install MSYS2
+  echo 3. Install Customizations
 )
 echo q. Exit
 echo.
@@ -44,9 +44,9 @@ if "%install_dir%"=="" (
     goto :showAvailableVariables
   ) else if "%response%"=="2" (
     goto :enterFolder
-  ) else if "%response%"=="3" (
+  ) else if "%response%"=="msys2" (
     goto :installMsys2
-  ) else if "%response%"=="4" (
+  ) else if "%response%"=="3" (
     goto :installCustomizations
   ) else if "%response%"=="q" (
     goto :eof
