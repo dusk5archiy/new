@@ -131,5 +131,4 @@ mkdir "%install_dir%\custom_system" 2>nul
 robocopy "%cwd%\msys2" "%install_dir%" /E
 echo [-- SUCCESS --] Customizations Installed Successfully.
 echo.
-pause
 goto :prompt

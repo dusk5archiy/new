@@ -1,27 +1,26 @@
 # -----------------------------------------------------------------------------
 
-mkdir -p $APPS_DIR
-mkdir -p $CUSTOM_SETTINGS_DIR/config
-mkdir -p $CUSTOM_SETTINGS_DIR/env
-mkdir -p $CUSTOM_SETTINGS_DIR/init
-mkdir -p $CUSTOM_SETTINGS_DIR/path
-mkdir -p $CUSTOM_SETTINGS_DIR/scripts
+/usr/bin/mkdir -p $APPS_DIR
+/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/config
+/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/env
+/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/init
+/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/path
+/usr/bin/mkdir -p $CUSTOM_SETTINGS_DIR/scripts
 
 # -----------------------------------------------------------------------------
 
 export EXTERNAL_PROGRAMS_FILE="$CUSTOM_SETTINGS_DIR/EXTERNAL_PROGRAMS.txt"
-touch $EXTERNAL_PROGRAMS_FILE
-
-export PATH="/usr/bin:$PATH"
+/usr/bin/touch $EXTERNAL_PROGRAMS_FILE
 
 EXTERNAL_PATH=""
 while IFS= read -r line || [[ -n "$line" ]]; do
-  p=$(dirname "$(type -p $line)")
-  if [[ -z "$p" ]]; then
+  line="${line//[[:space:]]/}"
+  p=$(/usr/bin/dirname "$(/usr/bin/which "$line")")
+  if [[ ! -z "$p" ]]; then
     EXTERNAL_PATH="$EXTERNAL_PATH:$p"
   fi
 done <"$EXTERNAL_PROGRAMS_FILE"
-EXTERNAL_PATH="$(EXTERNAL_PATH#:)"
+EXTERNAL_PATH="${EXTERNAL_PATH:1}"
 
 # -----------------------------------------------------------------------------
 
@@ -105,7 +104,9 @@ unset CUSTOM_PATH
 
 # -----------------------------------------------------------------------------
 
-export PATH="$EXTERNAL_PATH:$PATH"
+if [[ ! -z "$EXTERNAL_PATH" ]]; then
+  export PATH="$EXTERNAL_PATH:$PATH"
+fi
 unset EXTERNAL_PATH
 
 # -----------------------------------------------------------------------------
