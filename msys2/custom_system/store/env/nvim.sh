@@ -1,4 +1,4 @@
-export NVIM_CONFIG_DIR="$LOCALAPPDATA/nvim"
+export NVIM_CONFIG_DIR="$XDG_CONFIG_HOME/nvim"
 mkdir -p "$NVIM_CONFIG_DIR"
 
 export CUSTOM_NVIM_CONFIG_DIR="$ROOT_DIR/settings/config/nvim"
