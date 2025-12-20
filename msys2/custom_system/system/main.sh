@@ -145,9 +145,9 @@ unset EXTERNAL_PATH
 
 # -----------------------------------------------------------------------------
 
-if [ -f "$USERPROFILE/.bash_profile" ]; then
-  source "$USERPROFILE/.bash_profile"
-fi
+# if [ -f "$USERPROFILE/.bash_profile" ]; then
+#   source "$USERPROFILE/.bash_profile"
+# fi
 
 # -----------------------------------------------------------------------------
 
