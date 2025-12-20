@@ -23,6 +23,7 @@ set "PROFILE_FILE=%MSYS2_DIR%\etc\profile"
 echo export ROOT_DIR=$(/usr/bin/cygpath "%CWD%") > %PROFILE_FILE%
 echo export SYSTEM_DIR=$(/usr/bin/cygpath "%SYSTEM_DIR%") >>%PROFILE_FILE%
 echo export STORE_DIR=$(/usr/bin/cygpath "%STORE_DIR%") >>%PROFILE_FILE%
+echo export SETTINGS_DIR=$(/usr/bin/cygpath "%SETTINGS_DIR%") >>%PROFILE_FILE%
 echo export VAR_SETTINGS_DIR=$(/usr/bin/cygpath "%VAR_SETTINGS_DIR%") >>%PROFILE_FILE%
 echo export VAR_APPS_DIR=$(/usr/bin/cygpath "%VAR_APPS_DIR%") >>%PROFILE_FILE%
 echo export HOME=$(/usr/bin/cygpath "%HOME%") >>%PROFILE_FILE%
