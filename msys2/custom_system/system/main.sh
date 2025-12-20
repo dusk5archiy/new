@@ -61,6 +61,8 @@ export TMP="$HOME/tmp"
 export TEMP="$HOME/tmp"
 mkdir -p "$TMP"
 
+export ORIGINAL_USERPROFILE="$USERPROFILE"
+
 export USERPROFILE="$HOME/profile"
 mkdir -p "$USERPROFILE"
 
