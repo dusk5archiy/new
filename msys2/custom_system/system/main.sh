@@ -1,5 +1,10 @@
 # -----------------------------------------------------------------------------
 
+export SYSTEM_DRIVE_LETTER=$(echo $SYSTEMDRIVE | /usr/bin/cut -c1 | /usr/bin/tr '[:upper:]' '[:lower:]')
+export HOME_DRIVE_LETTER=$(/usr/bin/cygpath -w / | /usr/bin/cut -c1 | /usr/bin/tr '[:upper:]' '[:lower:]')
+
+# -----------------------------------------------------------------------------
+
 /usr/bin/mkdir -p "$APPS_DIR"
 /usr/bin/mkdir -p "$VAR_APPS_DIR"
 
@@ -61,7 +66,7 @@ export TMP="$HOME/tmp"
 export TEMP="$HOME/tmp"
 mkdir -p "$TMP"
 
-export ORIGINAL_USERPROFILE="$USERPROFILE"
+export ORIGINAL_USERPROFILE="/$SYSTEM_DRIVE_LETTER/Users/$(/usr/bin/whoami)"
 
 export USERPROFILE="$HOME/profile"
 mkdir -p "$USERPROFILE"
@@ -71,7 +76,7 @@ mkdir -p $DESKTOP
 
 export HOMEPATH=\\home
 
-export ORIGINAL_HOME="/home/$(whoami)"
+export ORIGINAL_HOME="/home/$(/usr/bin/whoami)"
 mkdir -p "$ORIGINAL_HOME"
 mkdir -p "$ORIGINAL_HOME/.ssh"
 
