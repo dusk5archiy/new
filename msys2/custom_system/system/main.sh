@@ -145,6 +145,12 @@ unset EXTERNAL_PATH
 
 # -----------------------------------------------------------------------------
 
+if [ -f "$USERPROFILE/.bash_profile" ]; then
+  source "$USERPROFILE/.bash_profile"
+fi
+
+# -----------------------------------------------------------------------------
+
 current_dir="$(pwd)"
 if [[ $current_dir == "/$SYSTEM_DRIVE_LETTER/Users/$(/usr/bin/whoami)" ]]; then
   cd $DESKTOP
