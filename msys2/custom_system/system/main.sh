@@ -44,10 +44,10 @@ source $SYSTEM_DIR/assets/etc/profile
 
 mkdir -p "$HOME/AppData"
 
-export APPDATA="$HOME/AppData/Roaming"
+export APPDATA=$(cygpath -w "$HOME/AppData/Roaming")
 mkdir -p "$APPDATA"
 
-export LOCALAPPDATA="$HOME/AppData/Local"
+export LOCALAPPDATA=$(cygpath -w "$HOME/AppData/Local")
 mkdir -p "$LOCALAPPDATA"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -68,13 +68,13 @@ mkdir -p "$TMP"
 
 export ORIGINAL_USERPROFILE="/$SYSTEM_DRIVE_LETTER/Users/$(/usr/bin/whoami)"
 
-export USERPROFILE="$HOME/profile"
+export USERPROFILE=$(cygpath -w "$HOME/profile")
 mkdir -p "$USERPROFILE"
 
-export DESKTOP="$USERPROFILE/Desktop"
+export DESKTOP="$USERPROFILE\Desktop"
 mkdir -p $DESKTOP
 
-export HOMEPATH=\\home
+# export HOMEPATH=\\home
 
 export ORIGINAL_HOME="/home/$(/usr/bin/whoami)"
 mkdir -p "$ORIGINAL_HOME"
@@ -145,8 +145,8 @@ unset EXTERNAL_PATH
 
 # -----------------------------------------------------------------------------
 
-# if [ -f "$USERPROFILE/.bash_profile" ]; then
-#   source "$USERPROFILE/.bash_profile"
+# if [ -f "$USERPROFILE\.bash_profile" ]; then
+#   source "$USERPROFILE\.bash_profile"
 # fi
 
 # -----------------------------------------------------------------------------
