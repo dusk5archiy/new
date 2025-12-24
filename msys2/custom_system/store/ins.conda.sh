@@ -15,5 +15,4 @@ if [ ! -f "$INSTALLER" ]; then
   exit 1
 fi
 
-# Run the installer silently without modifying path or registry
 $INSTALLER //NoRegistry=1 //AddToPath=0 //NoShortcuts=1 //RegisterPython=0 //S
