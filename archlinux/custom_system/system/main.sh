@@ -1,5 +1,6 @@
 # -----------------------------------------------------------------------------
 
+export ROOT_DIR="$HOME"
 export SYSTEM_DIR="$HOME/custom_system/system"
 export STORE_DIR="$HOME/custom_system/store"
 export VAR_SETTINGS_DIR="$HOME/var_settings"
