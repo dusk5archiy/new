@@ -72,6 +72,10 @@ done
 # -----------------------------------------------------------------------------
 
 CUSTOM_PATH="$SETTINGS_DIR/scripts:$VAR_SETTINGS_DIR/scripts:$SYSTEM_DIR/scripts:$STORE_DIR"
+find "$SETTINGS_DIR/scripts" -type f -name "*.sh" -exec chmod +x {} +
+find "$VAR_SETTINGS_DIR/scripts" -type f -name "*.sh" -exec chmod +x {} +
+find "$SYSTEM_DIR/scripts" -type f -name "*.sh" -exec chmod +x {} +
+find "$STORE_DIR" -type f -name "*.sh" -exec chmod +x {} +
 
 addpath() {
   local dir="$1"
