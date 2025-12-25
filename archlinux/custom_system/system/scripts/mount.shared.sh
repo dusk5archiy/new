@@ -1,7 +1,7 @@
 read -p 'Enter username: ' username_
 read -s -p 'Enter password: ' password_
 
-MOUNT_FOLDER='\mnt\shared'
+MOUNT_FOLDER='/mnt/shared'
 SHARED_ADDRESS="\\\\$(ip route show default | awk '/default/ {print $3}')\\shared"
 
 sudo mkdir -p "$MOUNT_FOLDER"
