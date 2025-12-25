@@ -1,1 +1,1 @@
-export YAZI_CONFIG_HOME="$APPDATA/yazi"
+export YAZI_CONFIG_HOME="$XDG_CONFIG_HOME/yazi"

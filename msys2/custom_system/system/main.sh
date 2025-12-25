@@ -59,7 +59,7 @@ mkdir -p "$XDG_DATA_HOME"
 export XDG_CACHE_HOME="$HOME/.cache"
 mkdir -p "$XDG_CACHE_HOME"
 
-export XDG_STATE_HOME=$HOME/.local/state
+export XDG_STATE_HOME="$HOME/.local/state"
 mkdir -p "$XDG_STATE_HOME"
 
 export TMP="$HOME/tmp"

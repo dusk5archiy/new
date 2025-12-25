@@ -1,1 +1,1 @@
-export NVIM_CONFIG_DIR="$APPDATA/nvim"
+export NVIM_CONFIG_DIR="$XDG_CONFIG_HOME/nvim"

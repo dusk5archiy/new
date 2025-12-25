@@ -1,3 +1,8 @@
+if [[ -z "$NVIM_CONFIG_DIR" ]]; then
+  echo 'Please set $NVIM_CONFIG_DIR'
+  exit
+fi
+
 rm -rf $NVIM_CONFIG_DIR
 git clone https://github.com/LazyVim/starter $NVIM_CONFIG_DIR
 rm -rf $NVIM_CONFIG_DIR/.git

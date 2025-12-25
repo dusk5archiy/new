@@ -1,0 +1,11 @@
+7zip
+fd
+fzf
+gcc
+git
+neovim
+nodejs
+python
+ripgrep
+tree-sitter
+unzip

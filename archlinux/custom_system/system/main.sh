@@ -22,16 +22,17 @@ export SETTINGS_DIR="$HOME/settings"
 
 # -----------------------------------------------------------------------------
 
-export APPDATA="$HOME/.config"
-mkdir -p "$APPDATA"
-export XDG_CONFIG_HOME="$APPDATA"
+export XDG_CONFIG_HOME="$HOME/.config"
+mkdir -p "$XDG_CONFIG_HOME"
 
-export LOCALAPPDATA="$HOME/.local/share"
-mkdir -p "$LOCALAPPDATA"
-export XDG_DATA_HOME="$LOCALAPPDATA"
+export XDG_DATA_HOME="$HOME/.local/share"
+mkdir -p "$XDG_DATA_HOME"
 
 export XDG_CACHE_HOME="$HOME/.cache"
 mkdir -p "$XDG_CACHE_HOME"
+
+export XDG_STATE_HOME="$HOME/.local/state"
+mkdir -p "$XDG_STATE_HOME"
 
 export TMP="$HOME/tmp"
 export TEMP="$HOME/tmp"
