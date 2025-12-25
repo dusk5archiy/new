@@ -1,8 +1,11 @@
-qemu-system-x86_64 -machine pc -accel tcg -smp 12 -m 4G \
+This script is for running with Hyper-V enabled:
+
+qemu-system-x86_64 -machine pc -accel whpx -smp 12 -m 4G \
     -drive file=/ucrt64/share/qemu/edk2-x86_64-code.fd,if=pflash,format=raw \
     -drive file='\\.\PhysicalDrive1',format=raw \
     -device virtio-gpu-pci -display gtk
 
+Without Hyper-V, you can change whpx to tcg.
 
 wait for 15 seconds, then type
 fs0:\EFI\BOOT\BOOTX64.efi
