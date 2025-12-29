@@ -74,6 +74,9 @@ mkdir -p "$USERPROFILE"
 export DESKTOP="$USERPROFILE\Desktop"
 mkdir -p $DESKTOP
 
+DOCUMENTS="$USERPROFILE\Documents"
+mkdir -p $DOCUMENTS
+
 # export HOMEPATH=\\home
 
 export ORIGINAL_HOME="/home/$(/usr/bin/whoami)"
