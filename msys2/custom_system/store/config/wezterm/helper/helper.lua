@@ -13,8 +13,8 @@ wezterm.on("toggle-acrylic", custom_functionality.changeSystemBackdrop)
 function M.getConfigs(other_configs)
 	local configs = {
 		-- font = primary_font,
-		initial_rows = 70,
-		initial_cols = 300,
+		initial_rows = 20,
+		initial_cols = 100,
 
 		adjust_window_size_when_changing_font_size = false,
 
