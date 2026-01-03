@@ -1,5 +1,5 @@
 if vim.g.vscode then
-	nitlvim.opt.clipboard = "unnamedplus"
+	vim.opt.clipboard = "unnamedplus"
 	return
 end
 

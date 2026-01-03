@@ -10,3 +10,4 @@ python
 ripgrep
 tree-sitter
 unzip
+npm
