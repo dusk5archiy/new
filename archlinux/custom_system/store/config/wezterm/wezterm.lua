@@ -2,7 +2,7 @@
 -- local CONFIG_DIR = wezterm.config_dir
 
 local configs = {
-	color_scheme = "Catppuccin Macchiato",
+	color_scheme = "Catppuccin Mocha",
 	window_decorations = "INTEGRATED_BUTTONS|RESIZE",
 	tab_bar_at_bottom = false,
 	show_tab_index_in_tab_bar = true,

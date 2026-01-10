@@ -27,7 +27,7 @@ function M.getConfigs(other_configs)
 		window_background_opacity = 1.0,
 		font_size = 9,
 		-- color_scheme = "Gruvbox dark, soft (base16)",
-		color_scheme = "Catppuccin Macchiato",
+		color_scheme = "Catppuccin Mocha",
 		set_environment_variables = {},
 		force_reverse_video_cursor = true,
 		front_end = "WebGpu", -- "OpenGL" | "WebGpu" | "Software"
