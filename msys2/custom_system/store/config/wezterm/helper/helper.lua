@@ -9,6 +9,13 @@ local custom_functionality = dofile(config_dir .. "/helper/custom_functionality.
 wezterm.on("toggle-opacity", custom_functionality.changeOpacity)
 wezterm.on("toggle-text-background-opacity", custom_functionality.changeTextBackgroundOpacity)
 wezterm.on("toggle-acrylic", custom_functionality.changeSystemBackdrop)
+wezterm.on("update-right-status", function(window, _)
+	local date = wezterm.strftime("%Y-%m-%d %H:%M:%S")
+
+	window:set_right_status(wezterm.format({
+		{ Text = date },
+	}))
+end)
 
 function M.getConfigs(other_configs)
 	local configs = {
