@@ -1,6 +1,10 @@
+# git clone https://github.com/dusk5archiy/new
+# cd new
+# chmod +x root.wsl.arch.sh
+# root.wsl.arch.sh
 echo "<> Create a new account"
-read -p "Username: " username_    # by default, variables are global, unless specified with the 'local' keyword
-read -s -p "Password: " password_ # -s tag to hide the entry
+read -p "Username: " username_
+read -s -p "Password: " password_
 echo ""
 echo "root:$password_" | chpasswd
 useradd -m -G wheel $username_ # create a user of group named 'wheel'
