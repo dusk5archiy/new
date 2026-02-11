@@ -14,7 +14,7 @@
     apps=("git" "ssh" "nvim" "yazi")
     ;;
   ubuntu)
-    apps=("git" "ssh" "nvim")
+    apps=("git" "ssh" "nvim" "yazi")
     ;;
   *)
     apps=()
