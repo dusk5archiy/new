@@ -1,4 +1,8 @@
-read -p "Enter app name: " app_name
+app_name="$1"
+if [[ -z "$app_name" ]]; then
+  read -p "Enter app name: " app_name
+fi
+
 d="$STORE_DIR/config/$app_name"
 if [ -d "$d" ]; then
   rm -rf "$SETTINGS_DIR/config/$app_name"

@@ -1,7 +1,7 @@
 # git clone https://github.com/dusk5archiy/new
 # cd new
 # chmod +x root.wsl.arch.sh
-# root.wsl.arch.sh
+# ./root.wsl.arch.sh
 echo "<> Create a new account"
 read -p "Username: " username_
 read -s -p "Password: " password_
@@ -31,4 +31,4 @@ pacman -S --noconfirm \
 # Make sure that every users of group wheel can run sudo without passwords
 sed -i '/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /etc/sudoers # Basically, this command below is to uncomment a line.
 echo "</> Setup completed."
-echo "Run 'exit', then 'wsl --shutdown' to shut down wsl, then run 'wsl' to start wsl again."
+echo "Run 'exit', then 'wsl --shutdown' to shut down wsl, then start wsl again."

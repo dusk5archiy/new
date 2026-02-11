@@ -1,8 +1,8 @@
 # -----------------------------------------------------------------------------
 
 export ROOT_DIR="$HOME"
-export SYSTEM_DIR="$HOME/custom_system/system"
-export STORE_DIR="$HOME/custom_system/store"
+export SYSTEM_DIR="$HOME/s7sys/system"
+export STORE_DIR="$HOME/s7sys/store"
 export VAR_SETTINGS_DIR="$HOME/var_settings"
 export SETTINGS_DIR="$HOME/settings"
 

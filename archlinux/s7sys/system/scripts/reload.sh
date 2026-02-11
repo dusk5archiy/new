@@ -1,0 +1,2 @@
+. /etc/profile
+. $HOME/.bashrc

@@ -1,4 +1,8 @@
-read -p "Enter app name: " app_name
+app_name="$1"
+if [[ -z "$app_name" ]]; then
+  read -p "Enter app name: " app_name
+fi
+
 rm -f "$VAR_SETTINGS_DIR/env/$app_name."*
 rm -f "$VAR_SETTINGS_DIR/init/$app_name."*
 rm -f "$VAR_SETTINGS_DIR/path/$app_name."*
