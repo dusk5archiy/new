@@ -43,17 +43,7 @@ mkdir -p "$HOME/.ssh"
 
 # -----------------------------------------------------------------------------
 
-for file in "$SYSTEM_DIR/env"/*.sh; do
-  [[ -f "$file" ]] && source "$file"
-done
-
-for file in "$VAR_SETTINGS_DIR/env"/*.sh; do
-  [[ -f "$file" ]] && source "$file"
-done
-
-for file in "$SETTINGS_DIR/env"/*.sh; do
-  [[ -f "$file" ]] && source "$file"
-done
+. $SYSTEM_DIR/scripts/env.refresh.sh
 
 # -----------------------------------------------------------------------------
 

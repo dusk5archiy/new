@@ -4,5 +4,6 @@ if [[ -z "$app_name" ]]; then
 fi
 
 load.env.app.sh $app_name
+. $SYSTEM_DIR/scripts/env.refresh.sh
 ins.package.app.sh $app_name
 load.config.app.sh $app_name
