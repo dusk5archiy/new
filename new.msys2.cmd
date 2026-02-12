@@ -126,8 +126,8 @@ goto :prompt
 :installCustomizations
 echo.
 echo [-- START --] Start installing Customizations at "%install_dir%".
-rmdir /s /q "%install_dir%\custom_system" 2>nul
-mkdir "%install_dir%\custom_system" 2>nul
+rmdir /s /q "%install_dir%\s7sys" 2>nul
+mkdir "%install_dir%\s7sys" 2>nul
 robocopy "%cwd%\msys2" "%install_dir%" /E
 echo [-- SUCCESS --] Customizations Installed Successfully.
 echo.

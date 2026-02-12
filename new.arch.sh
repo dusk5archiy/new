@@ -4,7 +4,7 @@
 # chmod +x new.arch.sh
 # . new.arch.sh
 rm -rf "$HOME/s7sys"
-cp -r "./archlinux"/* "$HOME/"
+cp -r "./linux"/* "$HOME/"
 sudo tee $HOME/.bashrc >/dev/null <<'EOF'
 [[ $- != *i* ]] && return
 
