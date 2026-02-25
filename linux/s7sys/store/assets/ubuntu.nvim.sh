@@ -6,3 +6,4 @@ sudo snap install --classic node
 
 sudo npm cache clean --force
 sudo npm install -g tree-sitter-cli
+sudo npm install -g neovim
