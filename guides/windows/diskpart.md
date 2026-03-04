@@ -7,8 +7,6 @@ Open `cmd` with Administrator rights, then run:
 ```cmd
 diskpart
 ```
-```
-```
 
 ## Selecting a disk
 
