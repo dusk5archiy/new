@@ -11,7 +11,7 @@ s='. $HOME/s7sys/system/main.sh'
 grep -v -F -x "$s" $HOME/.bashrc >$HOME/.bashrc.tmp && mv $HOME/.bashrc.tmp $HOME/.bashrc
 
 sudo tee $HOME/.bashrc >>/dev/null <<'EOF'
-$s
+. $HOME/s7sys/system/main.sh
 EOF
 
 echo 'Restart the shell to finish the installation.'
