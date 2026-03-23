@@ -8,7 +8,8 @@ rm -rf "$HOME/s7sys"
 cp -r "./linux"/* "$HOME/"
 
 s='. $HOME/s7sys/system/main.sh'
-grep -v -F -x "$s" $HOME/.bashrc >$HOME/.bashrc
+grep -v -F -x "$s" $HOME/.bashrc >$HOME/.bashrc.tmp && mv $HOME/.bashrc.tmp $HOME/.bashrc
+
 sudo tee $HOME/.bashrc >>/dev/null <<'EOF'
 $s
 EOF
