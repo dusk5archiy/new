@@ -3,15 +3,14 @@
 # cd new
 # chmod +x new.arch.sh
 # ./new.arch.sh
+
 rm -rf "$HOME/s7sys"
 cp -r "./linux"/* "$HOME/"
-sudo tee $HOME/.bashrc >/dev/null <<'EOF'
-[[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-. $HOME/s7sys/system/main.sh
+s=". $HOME/s7sys/system/main.sh"
+sed -i "/^${s}$/d" $HOME/.bashrc
+sudo tee $HOME/.bashrc >>/dev/null <<'EOF'
+$s
 EOF
 
 echo 'Restart the shell to finish the installation.'
