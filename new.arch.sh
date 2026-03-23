@@ -9,9 +9,9 @@ cp -r "./linux"/* "$HOME/"
 
 s='. $HOME/s7sys/system/main.sh'
 s=$(printf '%s\n' "$s" | sed 's/[.[\*^$\/&]/\\&/g')
-sed -i "/^${s}$/d" "$HOME/.bashrc"
+sed -i "/^${s}$/d" $HOME/.bashrc
 
-sudo tee $HOME/.bashrc >>/dev/null <<'EOF'
+sudo tee -a $HOME/.bashrc >>/dev/null <<'EOF'
 . $HOME/s7sys/system/main.sh
 EOF
 
